@@ -1,16 +1,15 @@
 package com.example.lib_mag.DataAccessLayer;
 
 import javax.persistence.*;
-// things which are auto generated are not passed in post calls.
-@Entity // this annotation is given by hibernate to create a ORM(object relation mapping)i.e we can now all
-// the objects of this class Book to our mysql DB. (IN simpler words this class become  table in mysql.)
+
+@Entity 
+
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) // since here id is auto generated we don't pass id during
-    private int id;                                 // post calls.
-    // auto generated value if say we add 1st book to our DB then id = 1(automatically), then for next and
-    // rest of the books if becomes (id=2,3,4,5...).
-    // note these fields are pushed in table in asscending order starting from id then ascending order is followed
+    @GeneratedValue(strategy = GenerationType.AUTO) 
+    private int id;                                
+   
+    
     @Column(name = "title")
     private String title;
 
