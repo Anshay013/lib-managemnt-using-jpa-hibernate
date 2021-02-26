@@ -8,9 +8,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@ControllerAdvice // annotation which allows write global code that can be applied to all types of controllers.
-//whenever @ControllerAdvice is written above a class its code becomes globally accessible to all controllers and API'S.
-// before client gets the response, the response goes to the class where @ControllerAdvice is.
+@ControllerAdvice 
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     // Let Spring handle the exception, we just override the status code
@@ -24,11 +22,11 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     }// (There are various status code NOT_FOUND is one of them).
     @ExceptionHandler(BookNameEmptyException.class)
     public void springHandleNotFound2(HttpServletResponse response) throws IOException {
-        response.sendError(HttpStatus.NO_CONTENT.value()); // this is how we send an error.
+        response.sendError(HttpStatus.NO_CONTENT.value()); 
     }
     @ExceptionHandler(UserNameEmptyException.class)
     public void springHandleNotFound3(HttpServletResponse response) throws IOException {
-        response.sendError(HttpStatus.NO_CONTENT.value()); // this is how we send an error.
+        response.sendError(HttpStatus.NO_CONTENT.value());
     }
     @ExceptionHandler(BookNotFoundByIdException.class)
         public void springHandleNotFound4(HttpServletResponse response) throws IOException{
