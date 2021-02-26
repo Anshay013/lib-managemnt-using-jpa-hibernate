@@ -34,17 +34,12 @@ public class BookController {
 
     @Autowired
     BookRepository repository;
-    BookValidator validator = new BookValidator(); // object made without autowired
-    /*
-    @GetMapping(value = "/getBooks")
-    public List<Book> getAllBook(){
-        return bookRepository.findAll();
-        }
-     */
+    BookValidator validator = new BookValidator(); 
+ 
 
     // Find All books
     @GetMapping("/books")
-     List<Book> findAll() { // method findAll under getAPI -->/books is called
+     List<Book> findAll() { 
         LOGGER.info("all books");
         // ,severe(error)
         List<Book> list = new ArrayList<Book>();
@@ -99,11 +94,11 @@ public class BookController {
 
 
     @GetMapping(value = "/searchBooksByAuthor") // we search the books by author name.
-    public List<Book> searchBooksByAuthor(@RequestParam(value = "q") String author) { //q--> author's name.
+    public List<Book> searchBooksByAuthor(@RequestParam(value = "q") String author) { 
         List<Book> books = bookRepository.findAll();
-        ArrayList<Book> list = new ArrayList<Book>(); // it will store the book written by the given author
-        for (Book book : books) { // now we scan the List "books" where all  books are stored.
-            if (book.getAuthor().equals(author)) list.add(book); // if find it we add it.(jav.sql query language).
+        ArrayList<Book> list = new ArrayList<Book>(); 
+        for (Book book : books) { 
+            if (book.getAuthor().equals(author)) list.add(book); 
         }
         return list;
     }
