@@ -83,8 +83,10 @@ public class BookController {
                     return book;
             }
             LOGGER.info("book with this id is not present");
-        } else
-            throw new BookNotFoundByIdException();
+        } 
+              else
+
+            LOGGER.severe("DB was found empty");
         return null;
 
 
